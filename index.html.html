@@ -1,0 +1,2895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+    content="My Practicum Journey - A student technology portfolio documenting learning, projects, skills and growth.">
+
+  <title>My Practicum Journey</title>
+
+  <style>
+
+    /* =========================
+       RESET & GENERAL STYLES
+    ========================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #111827;
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    section {
+      scroll-margin-top: 80px;
+    }
+
+    /* =========================
+       COLORS
+    ========================== */
+
+    :root {
+      --navy: #0B1F3A;
+      --blue: #2563EB;
+      --blue-dark: #1D4ED8;
+      --light-blue: #EFF6FF;
+      --white: #FFFFFF;
+      --light-gray: #F8FAFC;
+      --border: #E2E8F0;
+      --text: #111827;
+      --secondary: #64748B;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================== */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 600;
+      color: #334155;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .nav-button {
+      background: var(--blue);
+      color: white !important;
+      padding: 10px 16px;
+      border-radius: 7px;
+    }
+
+    .nav-button:hover {
+      background: var(--blue-dark);
+    }
+
+    .menu-btn {
+      display: none;
+      border: none;
+      background: transparent;
+      font-size: 28px;
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      background: linear-gradient(
+        to bottom,
+        #ffffff,
+        #f8fbff
+      );
+
+      padding: 90px 0 70px;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 75px);
+      line-height: 1.05;
+      letter-spacing: -3px;
+      color: var(--navy);
+      margin-bottom: 22px;
+    }
+
+    .hero-text {
+      font-size: 18px;
+      color: var(--secondary);
+      max-width: 620px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 19px;
+      border-radius: 8px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--navy);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    /* =========================
+       HERO MOCKUP
+    ========================== */
+
+    .workspace {
+      background: var(--navy);
+      padding: 18px;
+      border-radius: 15px;
+      box-shadow: 0 25px 55px rgba(11, 31, 58, 0.2);
+      transform: rotate(1deg);
+    }
+
+    .browser {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .browser-bar {
+      height: 35px;
+      background: #eef2f7;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding-left: 12px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: #94a3b8;
+      border-radius: 50%;
+    }
+
+    .screen {
+      padding: 25px;
+      background: #f8fafc;
+      min-height: 340px;
+    }
+
+    .mock-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+    }
+
+    .mock-logo {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .mock-pill {
+      width: 70px;
+      height: 9px;
+      background: #dbeafe;
+    }
+
+    .mock-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--navy);
+      max-width: 330px;
+      line-height: 1.1;
+    }
+
+    .mock-line {
+      width: 75%;
+      height: 7px;
+      background: #dbe2ea;
+      margin-top: 13px;
+    }
+
+    .mock-line.small {
+      width: 50%;
+    }
+
+    .mock-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .mock-card {
+      background: white;
+      padding: 15px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .mock-card strong {
+      display: block;
+      color: var(--blue);
+      font-size: 20px;
+    }
+
+    .mock-card span {
+      font-size: 11px;
+      color: var(--secondary);
+    }
+
+    .mock-code {
+      margin-top: 12px;
+      background: #0f2746;
+      color: #dbeafe;
+      padding: 12px;
+      font-family: monospace;
+      font-size: 11px;
+    }
+
+    /* =========================
+       HERO INFO
+    ========================== */
+
+    .hero-info {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 55px;
+      border-top: 1px solid var(--border);
+      padding-top: 22px;
+    }
+
+    .hero-info div {
+      border-right: 1px solid var(--border);
+      padding-left: 15px;
+    }
+
+    .hero-info div:first-child {
+      padding-left: 0;
+    }
+
+    .hero-info div:last-child {
+      border-right: none;
+    }
+
+    .hero-info strong {
+      display: block;
+      color: var(--navy);
+      font-size: 14px;
+    }
+
+    .hero-info span {
+      font-size: 12px;
+      color: var(--secondary);
+    }
+
+    /* =========================
+       SECTION
+    ========================== */
+
+    .section {
+      padding: 95px 0;
+    }
+
+    .section-header {
+      max-width: 700px;
+      margin-bottom: 45px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      color: var(--navy);
+      letter-spacing: -1.5px;
+    }
+
+    .section-header p {
+      color: var(--secondary);
+      margin-top: 15px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================== */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 70px;
+    }
+
+    .about-text p {
+      color: var(--secondary);
+      margin-top: 18px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .info-card {
+      border-top: 2px solid var(--blue);
+      padding-top: 18px;
+    }
+
+    .info-card h3 {
+      color: var(--navy);
+      margin-bottom: 7px;
+    }
+
+    .info-card p {
+      font-size: 14px;
+      color: var(--secondary);
+    }
+
+    /* =========================
+       TIMELINE
+    ========================== */
+
+    .timeline {
+      margin-top: 65px;
+      border-top: 1px solid var(--border);
+      padding-top: 30px;
+    }
+
+    .timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 15px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-top: 18px;
+      color: var(--secondary);
+      font-size: 12px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      top: -6px;
+      left: 0;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .timeline-item strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    /* =========================
+       JOURNEY
+    ========================== */
+
+    .journey-section {
+      background: var(--light-gray);
+    }
+
+    .journey-list {
+      border-top: 1px solid var(--border);
+    }
+
+    .journey-item {
+      display: grid;
+      grid-template-columns: 80px 1fr 2fr;
+      gap: 25px;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .journey-number {
+      color: var(--blue);
+      font-weight: 900;
+    }
+
+    .journey-item p {
+      color: var(--secondary);
+      font-size: 14px;
+    }
+
+    .journey-item h3 {
+      color: var(--navy);
+    }
+
+    /* =========================
+       PROJECTS
+    ========================== */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      border: 1px solid var(--border);
+      background: white;
+      transition: 0.25s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(11,31,58,.09);
+    }
+
+    .project-image {
+      height: 190px;
+      background: var(--light-blue);
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mini-browser {
+      background: white;
+      width: 92%;
+      height: 145px;
+      border: 1px solid #dbe4f0;
+      box-shadow: 0 8px 20px rgba(37,99,235,.08);
+    }
+
+    .mini-top {
+      height: 20px;
+      background: #f1f5f9;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    /* Calculator mockup */
+
+    .calculator-ui {
+      padding: 15px;
+    }
+
+    .calculator-display {
+      height: 28px;
+      background: var(--navy);
+      color: white;
+      text-align: right;
+      padding: 4px;
+      font-size: 11px;
+    }
+
+    .calculator-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+      margin-top: 7px;
+    }
+
+    .calculator-buttons span {
+      height: 16px;
+      background: #eff6ff;
+      border: 1px solid #dbeafe;
+    }
+
+    /* Quiz mockup */
+
+    .quiz-ui {
+      padding: 18px;
+    }
+
+    .quiz-progress {
+      height: 6px;
+      background: #dbeafe;
+      margin-bottom: 15px;
+    }
+
+    .quiz-question {
+      height: 18px;
+      width: 80%;
+      background: #dbe2ea;
+      margin-bottom: 12px;
+    }
+
+    .quiz-option {
+      height: 14px;
+      border: 1px solid #dbe2ea;
+      margin: 7px 0;
+    }
+
+    /* CGPA mockup */
+
+    .cgpa-ui {
+      padding: 15px;
+    }
+
+    .cgpa-row {
+      height: 24px;
+      display: flex;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .cgpa-row span {
+      flex: 1;
+      background: #eff6ff;
+      margin: 3px;
+    }
+
+    .project-content {
+      padding: 24px;
+    }
+
+    .project-number {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .project-content h3 {
+      color: var(--navy);
+      font-size: 21px;
+      margin: 8px 0;
+    }
+
+    .project-content p {
+      color: var(--secondary);
+      font-size: 14px;
+      min-height: 88px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 18px 0;
+    }
+
+    .tag {
+      background: #f1f5f9;
+      color: #475569;
+      font-size: 11px;
+      padding: 5px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .status {
+      color: #15803d;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    /* =========================
+       FEATURES
+    ========================== */
+
+    .features-section {
+      background: var(--navy);
+    }
+
+    .features-section h2,
+    .features-section h3 {
+      color: white;
+    }
+
+    .features-section .eyebrow {
+      color: #93c5fd;
+    }
+
+    .features-section .section-header p {
+      color: #b7c4d7;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid rgba(255,255,255,.15);
+      border-left: 1px solid rgba(255,255,255,.15);
+    }
+
+    .feature-card {
+      padding: 30px;
+      border-right: 1px solid rgba(255,255,255,.15);
+      border-bottom: 1px solid rgba(255,255,255,.15);
+    }
+
+    .feature-number {
+      color: #93c5fd;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .feature-card h3 {
+      margin: 13px 0 8px;
+    }
+
+    .feature-card p {
+      color: #b7c4d7;
+      font-size: 14px;
+    }
+
+    /* =========================
+       SKILLS
+    ========================== */
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      border: 1px solid var(--border);
+      padding: 11px 15px;
+      background: white;
+      color: #334155;
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .skill:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    /* =========================
+       TEAM
+    ========================== */
+
+    .team-section {
+      background: var(--light-gray);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .member-card {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 25px;
+    }
+
+    .avatar {
+      width: 75px;
+      height: 75px;
+      background: var(--light-blue);
+      border: 1px solid #dbeafe;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--blue);
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .member-card h3 {
+      color: var(--navy);
+    }
+
+    .role {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .member-card p {
+      color: var(--secondary);
+      font-size: 14px;
+      margin: 14px 0;
+    }
+
+    /* =========================
+       SUMMARY
+    ========================== */
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .summary-card {
+      border-top: 2px solid var(--navy);
+      padding-top: 20px;
+    }
+
+    .summary-card h3 {
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .summary-card p {
+      color: var(--secondary);
+      font-size: 14px;
+    }
+
+    .quote {
+      margin-top: 45px;
+      background: var(--light-blue);
+      border-left: 4px solid var(--blue);
+      padding: 30px;
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    /* =========================
+       STATS
+    ========================== */
+
+    .stats-section {
+      background: var(--light-gray);
+      padding: 50px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: white;
+      border: 1px solid var(--border);
+    }
+
+    .stat {
+      text-align: center;
+      padding: 28px;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--blue);
+      font-size: 35px;
+    }
+
+    .stat span {
+      color: var(--secondary);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* =========================
+       CTA
+    ========================== */
+
+    .cta {
+      text-align: center;
+      padding: 90px 0;
+    }
+
+    .cta h2 {
+      color: var(--navy);
+      font-size: clamp(32px, 5vw, 52px);
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: 15px auto 25px;
+      color: var(--secondary);
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      background: var(--navy);
+      color: #b7c4d7;
+      padding: 45px 0 25px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-logo {
+      color: white;
+      font-weight: 900;
+    }
+
+    .footer-logo span {
+      color: #93c5fd;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.12);
+      margin-top: 30px;
+      padding-top: 18px;
+      font-size: 12px;
+    }
+
+    /* =========================
+       MODAL
+    ========================== */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(11,31,58,.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      z-index: 2000;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: white;
+      width: 100%;
+      max-width: 750px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 35px;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      right: 18px;
+      top: 15px;
+      width: 38px;
+      height: 38px;
+      border: none;
+      background: #f1f5f9;
+      color: var(--navy);
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .modal-box h2 {
+      color: var(--navy);
+      margin-bottom: 5px;
+    }
+
+    .modal-tech {
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .detail {
+      border-top: 1px solid var(--border);
+      padding: 18px 0;
+    }
+
+    .detail h3 {
+      color: var(--navy);
+      margin-bottom: 7px;
+    }
+
+    .detail p,
+    .detail li {
+      color: var(--secondary);
+      font-size: 14px;
+    }
+
+    .detail ul {
+      padding-left: 20px;
+    }
+
+    /* =========================
+       BACK TO TOP
+    ========================== */
+
+    #topButton {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 45px;
+      height: 45px;
+      background: var(--blue);
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 7px;
+      display: none;
+      font-size: 20px;
+      z-index: 900;
+    }
+
+    #topButton.show {
+      display: block;
+    }
+
+    /* =========================
+       RESPONSIVE DESIGN
+    ========================== */
+
+    @media (max-width: 900px) {
+
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid,
+      .team-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .journey-item {
+        grid-template-columns: 70px 1fr;
+      }
+
+      .journey-item p {
+        grid-column: 2;
+      }
+
+    }
+
+    @media (max-width: 700px) {
+
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 72px;
+        background: white;
+        border-bottom: 1px solid var(--border);
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 15px 5%;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 9px 0;
+      }
+
+      .nav-button {
+        text-align: center;
+      }
+
+      .hero {
+        padding-top: 65px;
+      }
+
+      .hero-info {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .hero-info div {
+        border-right: none;
+        padding-left: 0;
+      }
+
+      .info-grid,
+      .projects-grid,
+      .team-grid,
+      .feature-grid,
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 30px;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stat:nth-child(2) {
+        border-right: none;
+      }
+
+      .stat:nth-child(-n+2) {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .footer-content {
+        flex-direction: column;
+      }
+
+      .workspace {
+        transform: none;
+      }
+
+    }
+
+    @media (max-width: 450px) {
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+
+      .timeline-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .modal-box {
+        padding: 25px 20px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+
+  <header class="navbar">
+
+    <div class="container nav-container">
+
+      <a href="#home" class="logo">
+        MY PRACTICUM <span>JOURNEY</span>
+      </a>
+
+      <button
+        class="menu-btn"
+        id="menuButton"
+        aria-label="Open navigation menu"
+        aria-expanded="false">
+        ☰
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#features">Features</a>
+        <a href="#team">Team</a>
+        <a href="#summary">Summary</a>
+
+        <a href="#projects" class="nav-button">
+          Explore My Journey
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+
+    <section class="hero" id="home">
+
+      <div class="container">
+
+        <div class="hero-content">
+
+          <div>
+
+            <div class="eyebrow">
+              MY PRACTICUM JOURNEY
+            </div>
+
+            <h1>
+              From Learning to Building:
+              My Practicum Journey
+            </h1>
+
+            <p class="hero-text">
+              A documentation of my practical learning experience,
+              projects, skills, challenges, and achievements
+              throughout my practicum.
+            </p>
+
+            <div class="hero-buttons">
+
+              <a href="#projects" class="btn btn-primary">
+                Explore Projects →
+              </a>
+
+              <a href="#summary" class="btn btn-secondary">
+                View Practicum Summary
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <!-- TECHNOLOGY MOCKUP -->
+
+          <div class="workspace">
+
+            <div class="browser">
+
+              <div class="browser-bar">
+
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+
+              </div>
+
+              <div class="screen">
+
+                <div class="mock-header">
+
+                  <div class="mock-logo">
+                    PRACTICUM / 2026
+                  </div>
+
+                  <div class="mock-pill"></div>
+
+                </div>
+
+                <div class="mock-title">
+                  Learning. Building. Growing.
+                </div>
+
+                <div class="mock-line"></div>
+                <div class="mock-line small"></div>
+
+                <div class="mock-cards">
+
+                  <div class="mock-card">
+                    <strong>03+</strong>
+                    <span>Projects</span>
+                  </div>
+
+                  <div class="mock-card">
+                    <strong>11+</strong>
+                    <span>Skills</span>
+                  </div>
+
+                  <div class="mock-card">
+                    <strong>01</strong>
+                    <span>Journey</span>
+                  </div>
+
+                </div>
+
+                <div class="mock-code">
+                  &lt;learn&gt;<br>
+                  practice();<br>
+                  buildProjects();<br>
+                  solveProblems();<br>
+                  &lt;/learn&gt;
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-info">
+
+          <div>
+            <strong>Practicum</strong>
+            <span>Practical experience</span>
+          </div>
+
+          <div>
+            <strong>Web Development</strong>
+            <span>Frontend learning</span>
+          </div>
+
+          <div>
+            <strong>Projects</strong>
+            <span>Build & apply</span>
+          </div>
+
+          <div>
+            <strong>Team Collaboration</strong>
+            <span>Learn together</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="section" id="about">
+
+      <div class="container">
+
+        <div class="about-grid">
+
+          <div class="about-text">
+
+            <div class="eyebrow">
+              ABOUT THE PRACTICUM
+            </div>
+
+            <h2>
+              About My Practicum
+            </h2>
+
+            <p>
+              The practicum gave me an opportunity to move beyond
+              classroom theory and experience how technology concepts
+              can be applied through practical work.
+            </p>
+
+            <p>
+              My goal was to improve my understanding of web development,
+              strengthen my problem-solving ability, work on real
+              projects, and become more confident with the tools used
+              to build websites.
+            </p>
+
+          </div>
+
+
+          <div class="info-grid">
+
+            <div class="info-card">
+
+              <h3>Practical Learning</h3>
+
+              <p>
+                Hands-on activities helped connect classroom knowledge
+                with practical web development tasks.
+              </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+              <h3>Skill Development</h3>
+
+              <p>
+                I developed technical, creative, problem-solving,
+                and digital collaboration skills.
+              </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+              <h3>Project-Based Experience</h3>
+
+              <p>
+                Projects provided a practical way to apply concepts,
+                test ideas, and improve through feedback.
+              </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+              <h3>Collaboration</h3>
+
+              <p>
+                Working alongside other practicum members encouraged
+                communication, idea sharing, and teamwork.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="timeline">
+
+          <div class="timeline-grid">
+
+            <div class="timeline-item">
+              <strong>01</strong>
+              Orientation
+            </div>
+
+            <div class="timeline-item">
+              <strong>02</strong>
+              Learning
+            </div>
+
+            <div class="timeline-item">
+              <strong>03</strong>
+              Practice
+            </div>
+
+            <div class="timeline-item">
+              <strong>04</strong>
+              Project Development
+            </div>
+
+            <div class="timeline-item">
+              <strong>05</strong>
+              Presentation
+            </div>
+
+            <div class="timeline-item">
+              <strong>06</strong>
+              Reflection
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         JOURNEY
+    ========================== -->
+
+    <section class="section journey-section" id="journey">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="eyebrow">
+            THE PROCESS
+          </div>
+
+          <h2>My Journey</h2>
+
+          <p>
+            Each stage represented a different part of my growth
+            from learning concepts to applying them through projects.
+          </p>
+
+        </div>
+
+
+        <div class="journey-list">
+
+          <div class="journey-item">
+
+            <div class="journey-number">
+              01
+            </div>
+
+            <h3>
+              Getting Started
+            </h3>
+
+            <p>
+              Introduction to the practicum, its expectations,
+              activities, and the tasks I would be working on.
+            </p>
+
+          </div>
+
+
+          <div class="journey-item">
+
+            <div class="journey-number">
+              02
+            </div>
+
+            <h3>
+              Learning
+            </h3>
+
+            <p>
+              Learning and improving my understanding of web
+              development concepts and the tools used to create websites.
+            </p>
+
+          </div>
+
+
+          <div class="journey-item">
+
+            <div class="journey-number">
+              03
+            </div>
+
+            <h3>
+              Practicing
+            </h3>
+
+            <p>
+              Applying HTML, CSS, JavaScript, and related concepts
+              through practical exercises and small tasks.
+            </p>
+
+          </div>
+
+
+          <div class="journey-item">
+
+            <div class="journey-number">
+              04
+            </div>
+
+            <h3>
+              Building
+            </h3>
+
+            <p>
+              Developing useful projects while improving their
+              functionality, layout, responsiveness, and user experience.
+            </p>
+
+          </div>
+
+
+          <div class="journey-item">
+
+            <div class="journey-number">
+              05
+            </div>
+
+            <h3>
+              Collaboration
+            </h3>
+
+            <p>
+              Working with other practicum members, sharing ideas,
+              comparing approaches, and learning from one another.
+            </p>
+
+          </div>
+
+
+          <div class="journey-item">
+
+            <div class="journey-number">
+              06
+            </div>
+
+            <h3>
+              Reflection
+            </h3>
+
+            <p>
+              Reviewing what I learned, the challenges I encountered,
+              how I improved, and what I want to learn next.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section class="section" id="projects">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="eyebrow">
+            SELECTED WORK
+          </div>
+
+          <h2>
+            Projects I Worked On
+          </h2>
+
+          <p>
+            Practical projects that helped me turn web development
+            concepts into working interfaces and useful applications.
+          </p>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+
+          <!-- CALCULATOR -->
+
+          <article class="project-card">
+
+            <div class="project-image">
+
+              <div class="mini-browser">
+
+                <div class="mini-top"></div>
+
+                <div class="calculator-ui">
+
+                  <div class="calculator-display">
+                    1,250 ÷ 5
+                  </div>
+
+                  <div class="calculator-buttons">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="project-content">
+
+              <div class="project-number">
+                PROJECT 01
+              </div>
+
+              <h3>
+                Calculator Website
+              </h3>
+
+              <p>
+                A modern web-based calculator designed to perform
+                mathematical calculations through a simple and
+                user-friendly interface.
+              </p>
+
+              <div class="tags">
+
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+
+              </div>
+
+              <div class="status">
+                ● Completed project
+              </div>
+
+              <button
+                class="btn btn-secondary details-btn"
+                data-project="calculator">
+
+                View Details →
+
+              </button>
+
+            </div>
+
+          </article>
+
+
+          <!-- QUIZ -->
+
+          <article class="project-card">
+
+            <div class="project-image">
+
+              <div class="mini-browser">
+
+                <div class="mini-top"></div>
+
+                <div class="quiz-ui">
+
+                  <div class="quiz-progress"></div>
+
+                  <div class="quiz-question"></div>
+
+                  <div class="quiz-option"></div>
+                  <div class="quiz-option"></div>
+                  <div class="quiz-option"></div>
+                  <div class="quiz-option"></div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="project-content">
+
+              <div class="project-number">
+                PROJECT 02
+              </div>
+
+              <h3>
+                Quiz Application
+              </h3>
+
+              <p>
+                An interactive quiz application designed to allow
+                users to answer questions and receive results.
+              </p>
+
+              <div class="tags">
+
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+
+              </div>
+
+              <div class="status">
+                ● Completed project
+              </div>
+
+              <button
+                class="btn btn-secondary details-btn"
+                data-project="quiz">
+
+                View Details →
+
+              </button>
+
+            </div>
+
+          </article>
+
+
+          <!-- CGPA -->
+
+          <article class="project-card">
+
+            <div class="project-image">
+
+              <div class="mini-browser">
+
+                <div class="mini-top"></div>
+
+                <div class="cgpa-ui">
+
+                  <div class="cgpa-row">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+
+                  <div class="cgpa-row">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+
+                  <div class="cgpa-row">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+
+                  <div class="cgpa-row">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="project-content">
+
+              <div class="project-number">
+                PROJECT 03
+              </div>
+
+              <h3>
+                CGPA Calculator
+              </h3>
+
+              <p>
+                A student-focused web application that helps university
+                students calculate their Grade Point Average quickly
+                and easily.
+              </p>
+
+              <div class="tags">
+
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+
+              </div>
+
+              <div class="status">
+                ● Completed project
+              </div>
+
+              <button
+                class="btn btn-secondary details-btn"
+                data-project="cgpa">
+
+                View Details →
+
+              </button>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FEATURES
+    ========================== -->
+
+    <section class="section features-section" id="features">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="eyebrow">
+            PROJECT CAPABILITIES
+          </div>
+
+          <h2>
+            What My Projects Can Do
+          </h2>
+
+          <p>
+            Across the projects, I practiced building interfaces
+            that are useful, interactive, responsive, and focused
+            on solving practical problems.
+          </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+          <div class="feature-card">
+
+            <div class="feature-number">01</div>
+
+            <h3>
+              Interactive Interfaces
+            </h3>
+
+            <p>
+              User-friendly interfaces designed for easy navigation
+              and clear interaction.
+            </p>
+
+          </div>
+
+
+          <div class="feature-card">
+
+            <div class="feature-number">02</div>
+
+            <h3>
+              Responsive Design
+            </h3>
+
+            <p>
+              Layouts designed to work across desktop, tablet,
+              and mobile screen sizes.
+            </p>
+
+          </div>
+
+
+          <div class="feature-card">
+
+            <div class="feature-number">03</div>
+
+            <h3>
+              Dynamic Functionality
+            </h3>
+
+            <p>
+              Interactive features powered by JavaScript and
+              user input.
+            </p>
+
+          </div>
+
+
+          <div class="feature-card">
+
+            <div class="feature-number">04</div>
+
+            <h3>
+              Real-Time Calculations
+            </h3>
+
+            <p>
+              Automatic calculations and instant results for
+              practical student tools.
+            </p>
+
+          </div>
+
+
+          <div class="feature-card">
+
+            <div class="feature-number">05</div>
+
+            <h3>
+              User Interaction
+            </h3>
+
+            <p>
+              Buttons, forms, inputs, selections, and interactive
+              components that respond to users.
+            </p>
+
+          </div>
+
+
+          <div class="feature-card">
+
+            <div class="feature-number">06</div>
+
+            <h3>
+              Problem Solving
+            </h3>
+
+            <p>
+              Projects designed around practical everyday and
+              student-focused problems.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+
+    <section class="section" id="skills">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="eyebrow">
+            GROWTH & SKILLS
+          </div>
+
+          <h2>
+            Skills Developed During My Practicum
+          </h2>
+
+          <p>
+            My practicum helped me move from simply learning
+            concepts to applying them through practical projects.
+          </p>
+
+        </div>
+
+
+        <div class="skills">
+
+          <span class="skill">HTML5</span>
+          <span class="skill">CSS3</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">Responsive Web Design</span>
+          <span class="skill">UI/UX Design</span>
+          <span class="skill">Git/GitHub</span>
+          <span class="skill">VS Code</span>
+          <span class="skill">Vercel</span>
+          <span class="skill">AI-Assisted Development</span>
+          <span class="skill">Problem Solving</span>
+          <span class="skill">Team Collaboration</span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TEAM
+    ========================== -->
+
+    <section class="section team-section" id="team">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="eyebrow">
+            THE PEOPLE
+          </div>
+
+          <h2>
+            Meet Our Practicum Members
+          </h2>
+
+          <p>
+            Replace the placeholder member cards below with the
+            real members of your practicum team.
+          </p>
+
+        </div>
+
+
+        <div class="team-grid">
+
+
+          <!-- ALICE -->
+
+          <div class="member-card">
+
+            <div class="avatar">
+              AO
+            </div>
+
+            <h3>
+              Alice Okikiola
+            </h3>
+
+            <div class="role">
+              Web Development / Frontend
+            </div>
+
+            <p>
+              Focused on learning web development, building
+              interactive websites, improving UI design, and
+              applying frontend development concepts through
+              practical projects.
+            </p>
+
+            <span class="tag">
+              Frontend
+            </span>
+
+          </div>
+
+
+          <!-- MEMBER 2 -->
+
+          <div class="member-card">
+
+            <div class="avatar">
+              YZ
+            </div>
+
+            <h3>
+              Yekini Zainab
+            </h3>
+
+            <div class="role">
+              Website Developer
+            </div>
+
+            <p>
+              Participated in learning website design, building webpage layouts, practicing HTML and CSS,
+              and contributing ideas during project development.
+            </p>
+
+            <span class="tag">
+              Edit Profile
+            </span>
+
+          </div>
+
+
+          <!-- MEMBER 3 -->
+
+          <div class="member-card">
+
+            <div class="avatar">
+              BK
+            </div>
+
+            <h3>
+              Bello Kafayat
+            </h3>
+
+            <div class="role">
+              Website Developer
+            </div>
+
+            <p>
+              Participated in practical web design exercises, learning Frontend concepts, improving webpage
+              presentation, and collaborating with other practicum members.
+            </p>
+
+            <span class="tag">
+              Edit Profile
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SUMMARY
+    ========================== -->
+
+    <section class="section" id="summary">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="eyebrow">
+            LOOKING BACK
+          </div>
+
+          <h2>
+            My Practicum Summary
+          </h2>
+
+          <p>
+            A reflection on the experience, projects,
+            challenges, and growth that came from the journey.
+          </p>
+
+        </div>
+
+
+        <div class="summary-grid">
+
+
+          <div class="summary-card">
+
+            <h3>
+              What I Learned
+            </h3>
+
+            <p>
+              I gained practical knowledge of frontend development,
+              interface design, responsive layouts, JavaScript
+              functionality, and the process of turning ideas
+              into working websites.
+            </p>
+
+          </div>
+
+
+          <div class="summary-card">
+
+            <h3>
+              What I Built
+            </h3>
+
+            <p>
+              I worked on a calculator website, an interactive
+              quiz application, and a CGPA calculator, using
+              projects to practice and demonstrate the concepts
+              I learned.
+            </p>
+
+          </div>
+
+
+          <div class="summary-card">
+
+            <h3>
+              Challenges
+            </h3>
+
+            <p>
+              Learning new concepts, understanding functionality,
+              fixing errors, and translating ideas into working
+              interfaces were some of the challenges I encountered.
+            </p>
+
+          </div>
+
+
+          <div class="summary-card">
+
+            <h3>
+              How I Improved
+            </h3>
+
+            <p>
+              Through practice, experimentation, feedback,
+              and troubleshooting, I became better at understanding
+              problems and approaching development tasks step by step.
+            </p>
+
+          </div>
+
+
+          <div class="summary-card">
+
+            <h3>
+              What I Gained
+            </h3>
+
+            <p>
+              The experience strengthened my confidence, creativity,
+              teamwork, practical experience, and interest in
+              continuing to develop technology skills.
+            </p>
+
+          </div>
+
+
+          <div class="summary-card">
+
+            <h3>
+              What's Next
+            </h3>
+
+            <p>
+              I want to continue improving my JavaScript and
+              frontend development skills, build more independent
+              projects, and gradually explore full-stack development.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="quote">
+
+          “Every project was not just something I built;
+          it was another step in my journey from learning to creating.”
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         STATISTICS
+    ========================== -->
+
+    <section class="stats-section">
+
+      <div class="container">
+
+        <div class="stats-grid">
+
+          <div class="stat">
+            <strong>03+</strong>
+            <span>Projects</span>
+          </div>
+
+          <div class="stat">
+            <strong>05+</strong>
+            <span>Skills Developed</span>
+          </div>
+
+          <div class="stat">
+            <strong>01</strong>
+            <span>Practicum Journey</span>
+          </div>
+
+          <div class="stat">
+            <strong>∞</strong>
+            <span>Lessons Learned</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FINAL CTA
+    ========================== -->
+
+    <section class="cta">
+
+      <div class="container">
+
+        <div class="eyebrow">
+          KEEP GROWING
+        </div>
+
+        <h2>
+          This Is Only The Beginning
+        </h2>
+
+        <p>
+          My practicum journey gave me the opportunity to learn,
+          experiment, build, collaborate, and grow. The experience
+          has strengthened my interest in technology and encouraged
+          me to continue developing my skills.
+        </p>
+
+        <div class="cta-buttons">
+
+          <a href="#projects" class="btn btn-primary">
+            Explore My Projects →
+          </a>
+
+          <button class="btn btn-secondary" id="backTop">
+            Back to Top ↑
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-content">
+
+        <div>
+
+          <div class="footer-logo">
+            MY PRACTICUM <span>JOURNEY</span>
+          </div>
+
+          <p>
+            Learning. Building. Growing.
+          </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#team">Team</a>
+          <a href="#summary">Summary</a>
+
+        </div>
+
+      </div>
+
+
+      <div class="copyright">
+
+        © 2026 My Practicum Journey.
+        All rights reserved.
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       BACK TO TOP
+  ========================== -->
+
+  <button id="topButton" aria-label="Back to top">
+    ↑
+  </button>
+
+
+  <!-- =========================
+       PROJECT DETAILS MODAL
+  ========================== -->
+
+  <div class="modal" id="projectModal">
+
+    <div class="modal-box">
+
+      <button
+        class="close-modal"
+        id="closeModal"
+        aria-label="Close">
+        ×
+      </button>
+
+      <div class="eyebrow">
+        PROJECT DETAILS
+      </div>
+
+      <h2 id="modalTitle"></h2>
+
+      <div class="modal-tech" id="modalTech"></div>
+
+      <div id="modalContent"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    /* =========================
+       MOBILE MENU
+    ========================== */
+
+    const menuButton =
+      document.getElementById("menuButton");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+
+    menuButton.addEventListener("click", function () {
+
+      navLinks.classList.toggle("active");
+
+      const isOpen =
+        navLinks.classList.contains("active");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        isOpen
+      );
+
+      menuButton.textContent =
+        isOpen ? "×" : "☰";
+
+    });
+
+
+    /* Close mobile menu after clicking link */
+
+    document.querySelectorAll(".nav-links a")
+      .forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+          navLinks.classList.remove("active");
+
+          menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          menuButton.textContent = "☰";
+
+        });
+
+      });
+
+
+    /* =========================
+       PROJECT DATA
+    ========================== */
+
+    const projectData = {
+
+      calculator: {
+
+        title: "Calculator Website",
+
+        tech: "HTML • CSS • JavaScript",
+
+        overview:
+          "A modern web-based calculator created to make everyday mathematical calculations simple, quick, and easy to understand.",
+
+        problem:
+          "It provides a straightforward digital alternative to manual calculations while giving users a clean and responsive interface.",
+
+        features: [
+          "Basic arithmetic operations",
+          "Addition",
+          "Subtraction",
+          "Multiplication",
+          "Division",
+          "Percentage calculations",
+          "Clear and reset functionality",
+          "Responsive interface"
+        ],
+
+        learned:
+          "I practiced structuring an interface with HTML, styling interactive controls with CSS, and using JavaScript to process user input and calculations.",
+
+        challenges:
+          "Handling multiple operations, keeping the display accurate, and making the interface work well on smaller screens required careful testing.",
+
+        improvement:
+          "The interface was refined with clearer controls, responsive sizing, and JavaScript logic that gives immediate feedback."
+
+      },
+
+
+      quiz: {
+
+        title: "Quiz Application",
+
+        tech: "HTML • CSS • JavaScript",
+
+        overview:
+          "An interactive quiz application where users answer multiple-choice questions and receive a calculated result.",
+
+        problem:
+          "It provides a simple way to practice knowledge through an interactive question-and-answer experience.",
+
+        features: [
+          "Multiple-choice questions",
+          "Interactive question interface",
+          "Answer selection",
+          "Score calculation",
+          "Result display",
+          "Restart quiz functionality",
+          "Responsive design"
+        ],
+
+        learned:
+          "I practiced working with JavaScript logic, user events, question data, score tracking, and updating webpage content dynamically.",
+
+        challenges:
+          "Managing question flow, recording selected answers, and displaying the correct result required understanding how different JavaScript parts work together.",
+
+        improvement:
+          "The application was improved by making the question flow clearer, adding restart functionality, and keeping the interface responsive."
+
+      },
+
+
+      cgpa: {
+
+        title: "CGPA Calculator",
+
+        tech: "HTML • CSS • JavaScript",
+
+        overview:
+          "A student-focused web application designed to help university students calculate GPA and CGPA quickly using course, credit-unit, and grade information.",
+
+        problem:
+          "It reduces the difficulty of manually calculating grade points across multiple courses and provides an immediate result.",
+
+        features: [
+          "Course input",
+          "Credit unit selection",
+          "Grade selection",
+          "Automatic GPA calculation",
+          "CGPA calculation",
+          "Multiple course support",
+          "Clear and reset functionality",
+          "Mobile responsive design"
+        ],
+
+        learned:
+          "I practiced form design, JavaScript calculations, input handling, validation, and presenting numerical results in a clear student-friendly interface.",
+
+        challenges:
+          "Making sure credit units and grades were processed correctly while keeping the form easy to use was an important part of development.",
+
+        improvement:
+          "The project was refined through clearer input fields, better result presentation, reset functionality, and responsive styling."
+
+      }
+
+    };
+
+
+    /* =========================
+       PROJECT MODAL
+    ========================== */
+
+    const modal =
+      document.getElementById("projectModal");
+
+    const modalTitle =
+      document.getElementById("modalTitle");
+
+    const modalTech =
+      document.getElementById("modalTech");
+
+    const modalContent =
+      document.getElementById("modalContent");
+
+    const closeModal =
+      document.getElementById("closeModal");
+
+
+    document.querySelectorAll(".details-btn")
+      .forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+          const project =
+            projectData[button.dataset.project];
+
+
+          modalTitle.textContent =
+            project.title;
+
+          modalTech.textContent =
+            project.tech;
+
+
+          modalContent.innerHTML = `
+
+            <div class="detail">
+
+              <h3>Project Overview</h3>
+
+              <p>
+                ${project.overview}
+              </p>
+
+            </div>
+
+
+            <div class="detail">
+
+              <h3>Problem It Solves</h3>
+
+              <p>
+                ${project.problem}
+              </p>
+
+            </div>
+
+
+            <div class="detail">
+
+              <h3>Technologies Used</h3>
+
+              <p>
+                ${project.tech}
+              </p>
+
+            </div>
+
+
+            <div class="detail">
+
+              <h3>Project Features</h3>
+
+              <ul>
+
+                ${project.features
+                  .map(function(feature) {
+                    return `<li>${feature}</li>`;
+                  })
+                  .join("")}
+
+              </ul>
+
+            </div>
+
+
+            <div class="detail">
+
+              <h3>What I Learned</h3>
+
+              <p>
+                ${project.learned}
+              </p>
+
+            </div>
+
+
+            <div class="detail">
+
+              <h3>Challenges Encountered</h3>
+
+              <p>
+                ${project.challenges}
+              </p>
+
+            </div>
+
+
+            <div class="detail">
+
+              <h3>How The Project Was Improved</h3>
+
+              <p>
+                ${project.improvement}
+              </p>
+
+            </div>
+
+          `;
+
+
+          modal.classList.add("active");
+
+          document.body.style.overflow =
+            "hidden";
+
+        });
+
+      });
+
+
+    /* =========================
+       CLOSE MODAL
+    ========================== */
+
+    function closeProjectModal() {
+
+      modal.classList.remove("active");
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    closeModal.addEventListener(
+      "click",
+      closeProjectModal
+    );
+
+
+    modal.addEventListener(
+      "click",
+      function(event) {
+
+        if (event.target === modal) {
+
+          closeProjectModal();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Escape") {
+
+          closeProjectModal();
+
+        }
+
+      }
+    );
+
+
+    /* =========================
+       BACK TO TOP
+    ========================== */
+
+    const topButton =
+      document.getElementById("topButton");
+
+    const backTop =
+      document.getElementById("backTop");
+
+
+    window.addEventListener(
+      "scroll",
+      function() {
+
+        if (window.scrollY > 500) {
+
+          topButton.classList.add("show");
+
+        } else {
+
+          topButton.classList.remove("show");
+
+        }
+
+      }
+    );
+
+
+    function goToTop() {
+
+      window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+      });
+
+    }
+
+
+    topButton.addEventListener(
+      "click",
+      goToTop
+    );
+
+
+    backTop.addEventListener(
+      "click",
+      goToTop
+    );
+
+  </script>
+
+</body>
+</html>
